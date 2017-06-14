@@ -142,7 +142,7 @@ x = 2; y = 4
 print(x * y); print(x**y); print(x/y)
 ```
 
-## Danger with previous Python versions
+## Previous Python versions
 
 Previous versions of Python used the classic division also used in other programming languages.
 For example
@@ -150,8 +150,8 @@ For example
 7 / 3 == 2 #python <= 2.1
 -7 / 3 == -2 #python <= 2.1
 
-7 / 3 == 2 #python  2.2
--7 / 3 == -3 #python  2.2
+7 / 3 == 2 #python  2.2 to 2.9
+-7 / 3 == -3 #python  2.2 to 2.9
 ```
 
 * Python 2.1 and earlier use C division behavior (integer division rounds towards 0)
@@ -313,9 +313,9 @@ print("dict['Age']: ", dict['Age'])
 
 ```{python}
 dict = {'Name': 'Zara', 'Age': 7, 'Class': 'First'}
-del dict['Name']; # remove entry with key 'Name'
-dict.clear();     # remove all entries in dict
-del dict ;        # delete entire dictionary
+del dict['Name'] # remove entry with key 'Name'
+dict.clear()     # remove all entries in dict
+del dict         # delete entire dictionary
 ```
 
 ## Dicts
@@ -399,7 +399,6 @@ print("np.dot(A,B) operation:\n",np.dot(A,B))
 ```{python}
 import numpy as np
 A = np.array([[0,1],[1,0]])
-B = np.array([[2,1],[4,5]])
 print("Inverse:\n",np.linalg.inv(A))
 print("Eigenvalues:\n",np.linalg.eig(A))
 ```
@@ -456,7 +455,7 @@ print(df)
 ```
 
 
-## Basic DataFrame Manipulation
+## Basic DataFrame Stats
 
 ```{python}
 import pandas as pd
@@ -492,7 +491,7 @@ df = pd.DataFrame(np.random.randn(6,4), columns=list('ABCD'))
 print(df[df > 0])
 ```
 
-## Some Stats
+## Some More Functions
 
 ```{python}
 import pandas as pd
@@ -509,10 +508,8 @@ import pandas as pd
 import numpy as np
 df = pd.DataFrame({'A' : ['foo', 'bar', 'foo', 'bar',
                           'foo', 'bar', 'foo', 'foo'],
-                   'B' : ['one', 'one', 'two', 'three',
-                          'two', 'two', 'one', 'three'],
-                   'C' : np.random.randn(8),
-                   'D' : np.random.randn(8)})
+                   'B' : np.random.randn(8),
+                   'C' : np.random.randn(8)})
 print(df.groupby('A').sum())
 ```
 

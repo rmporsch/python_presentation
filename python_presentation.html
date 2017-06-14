@@ -237,15 +237,15 @@ print(x * y); print(x**y); print(x/y)</pre>
 ## 16
 ## 0.5</pre>
 
-</article></slide><slide class=''><hgroup><h2>Danger with previous Python versions</h2></hgroup><article  id="danger-with-previous-python-versions" class="smaller ">
+</article></slide><slide class=''><hgroup><h2>Previous Python versions</h2></hgroup><article  id="previous-python-versions" class="smaller ">
 
 <p>Previous versions of Python used the classic division also used in other programming languages. For example</p>
 
 <pre class = 'prettyprint lang-python'>7 / 3 == 2 #python &lt;= 2.1
 -7 / 3 == -2 #python &lt;= 2.1
 
-7 / 3 == 2 #python  2.2
--7 / 3 == -3 #python  2.2</pre>
+7 / 3 == 2 #python  2.2 to 2.9
+-7 / 3 == -3 #python  2.2 to 2.9</pre>
 
 <ul>
 <li>Python 2.1 and earlier use C division behavior (integer division rounds towards 0)</li>
@@ -418,9 +418,9 @@ print(&quot;dict[&#39;Age&#39;]: &quot;, dict[&#39;Age&#39;])</pre>
 ## dict[&#39;Age&#39;]:  8</pre>
 
 <pre class = 'prettyprint lang-python'>dict = {&#39;Name&#39;: &#39;Zara&#39;, &#39;Age&#39;: 7, &#39;Class&#39;: &#39;First&#39;}
-del dict[&#39;Name&#39;]; # remove entry with key &#39;Name&#39;
-dict.clear();     # remove all entries in dict
-del dict ;        # delete entire dictionary</pre>
+del dict[&#39;Name&#39;] # remove entry with key &#39;Name&#39;
+dict.clear()     # remove all entries in dict
+del dict         # delete entire dictionary</pre>
 
 </article></slide><slide class=''><hgroup><h2>Dicts</h2></hgroup><article  id="dicts-1" class="smaller ">
 
@@ -433,8 +433,8 @@ print(&quot;dict[&#39;Name&#39;]: &quot;, dict[&#39;Name&#39;])</pre>
 for key, value in dict.items():
     print(key, value)</pre>
 
-<pre >## Class First
-## Name Zara
+<pre >## Name Zara
+## Class First
 ## Age 7</pre>
 
 <p><strong>don&#39;t assume that the keys will be in any particular order</strong></p>
@@ -529,7 +529,6 @@ print(&quot;np.dot(A,B) operation:\n&quot;,np.dot(A,B))</pre>
 
 <pre class = 'prettyprint lang-python'>import numpy as np
 A = np.array([[0,1],[1,0]])
-B = np.array([[2,1],[4,5]])
 print(&quot;Inverse:\n&quot;,np.linalg.inv(A))
 print(&quot;Eigenvalues:\n&quot;,np.linalg.eig(A))</pre>
 
@@ -602,7 +601,7 @@ print(df)</pre>
 ## 2  1.0 2013-01-02  1.0  3   test  foo
 ## 3  1.0 2013-01-02  1.0  3  train  foo</pre>
 
-</article></slide><slide class=''><hgroup><h2>Basic DataFrame Manipulation</h2></hgroup><article  id="basic-dataframe-manipulation" class="smaller ">
+</article></slide><slide class=''><hgroup><h2>Basic DataFrame Stats</h2></hgroup><article  id="basic-dataframe-stats" class="smaller ">
 
 <pre class = 'prettyprint lang-python'>import pandas as pd
 import numpy as np
@@ -611,13 +610,13 @@ print(df.describe())</pre>
 
 <pre >##               A         B         C         D
 ## count  6.000000  6.000000  6.000000  6.000000
-## mean   0.309245  0.389778  0.412203  0.239591
-## std    1.349221  0.535454  1.464988  0.886017
-## min   -1.414352 -0.023356 -2.083069 -0.752299
-## 25%   -0.405032  0.035781 -0.157496 -0.452357
-## 50%    0.033961  0.283461  0.718966  0.135412
-## 75%    1.045544  0.388100  1.511528  0.868751
-## max    2.370527  1.418901  1.792292  1.454107</pre>
+## mean   0.915071 -0.298518  0.154165 -0.381128
+## std    0.369412  1.484025  0.961017  0.944127
+## min    0.368000 -2.754928 -0.913771 -1.422180
+## 25%    0.685913 -0.917458 -0.452522 -1.148201
+## 50%    1.026422  0.123688 -0.006114 -0.450965
+## 75%    1.102349  0.442728  0.495421  0.454016
+## max    1.369514  1.431879  1.789714  0.662278</pre>
 
 </article></slide><slide class=''><hgroup><h2>Sorting</h2></hgroup><article  id="sorting" class="smaller ">
 
@@ -627,12 +626,12 @@ df = pd.DataFrame(np.random.randn(6,4), columns=list(&#39;ABCD&#39;))
 print(df.sort_values(by=&#39;B&#39;))</pre>
 
 <pre >##           A         B         C         D
-## 3  1.041670 -1.159657  0.008881 -0.961757
-## 4 -0.585863 -1.005955  0.739891  1.248625
-## 2 -0.089437 -0.132867  0.234078 -0.313350
-## 0  3.434250 -0.041148 -0.305213 -0.542721
-## 1 -0.779290  0.272086  1.029209 -0.401745
-## 5 -0.012203  0.389948  1.304687 -1.370638</pre>
+## 0 -0.872757 -1.717503  0.254964 -1.389377
+## 3  1.073397 -0.919351  1.675148 -0.367560
+## 5 -0.989803 -0.433182 -0.223759  0.210572
+## 1 -0.688379 -0.075412 -0.368757  1.514537
+## 4 -0.489996  0.707533  0.187137  0.132401
+## 2 -0.703775  0.787915  2.171763 -0.046602</pre>
 
 </article></slide><slide class=''><hgroup><h2>Selecting</h2></hgroup><article  id="selecting" class="smaller ">
 
@@ -642,12 +641,12 @@ df = pd.DataFrame(np.random.randn(6,4), columns=list(&#39;ABCD&#39;))
 print(df.loc[:,[&#39;A&#39;,&#39;B&#39;]])</pre>
 
 <pre >##           A         B
-## 0 -0.763999  0.396662
-## 1  0.014516 -0.207779
-## 2  1.348397 -0.308864
-## 3 -0.760161 -0.348290
-## 4  0.782686 -0.882882
-## 5  0.463882  0.480773</pre>
+## 0 -0.081556 -1.033000
+## 1  1.312688 -0.163114
+## 2 -0.710461  0.572228
+## 3 -0.518954  0.910575
+## 4 -1.626946 -1.170208
+## 5 -0.099149  1.091928</pre>
 
 </article></slide><slide class=''><hgroup><h2>Selecting</h2></hgroup><article  id="selecting-1" class="smaller ">
 
@@ -657,14 +656,14 @@ df = pd.DataFrame(np.random.randn(6,4), columns=list(&#39;ABCD&#39;))
 print(df[df &gt; 0])</pre>
 
 <pre >##           A         B         C         D
-## 0       NaN       NaN       NaN  0.237825
-## 1  1.200395  0.605069  1.553761  1.547007
-## 2  0.621371  0.656857  0.173866       NaN
-## 3       NaN  1.002125  0.904223  0.913674
-## 4       NaN       NaN       NaN  0.597267
-## 5       NaN  0.741307  0.571876       NaN</pre>
+## 0       NaN       NaN  0.774422  0.571333
+## 1       NaN  0.230541  0.781716  0.471254
+## 2  0.186593       NaN  0.917674       NaN
+## 3  0.511638  0.912874  1.900213       NaN
+## 4       NaN       NaN       NaN       NaN
+## 5  1.596731  1.827010  0.483617       NaN</pre>
 
-</article></slide><slide class=''><hgroup><h2>Some Stats</h2></hgroup><article  id="some-stats" class="smaller ">
+</article></slide><slide class=''><hgroup><h2>Some More Functions</h2></hgroup><article  id="some-more-functions" class="smaller ">
 
 <pre class = 'prettyprint lang-python'>import pandas as pd
 import numpy as np
@@ -672,15 +671,15 @@ df = pd.DataFrame(np.random.randn(6,4), columns=list(&#39;ABCD&#39;))
 print(df.mean())
 print(df.apply(lambda x: x.max() - x.min()))</pre>
 
-<pre >## A   -0.043440
-## B    0.345543
-## C   -0.389979
-## D    0.013231
+<pre >## A    0.701242
+## B   -0.079125
+## C   -0.072783
+## D    0.312213
 ## dtype: float64
-## A    1.902106
-## B    2.618446
-## C    0.791867
-## D    3.663507
+## A    3.464469
+## B    3.022582
+## C    2.092262
+## D    2.619050
 ## dtype: float64</pre>
 
 </article></slide><slide class=''><hgroup><h2>Grouping</h2></hgroup><article  id="grouping" class="smaller ">
@@ -689,16 +688,14 @@ print(df.apply(lambda x: x.max() - x.min()))</pre>
 import numpy as np
 df = pd.DataFrame({&#39;A&#39; : [&#39;foo&#39;, &#39;bar&#39;, &#39;foo&#39;, &#39;bar&#39;,
                           &#39;foo&#39;, &#39;bar&#39;, &#39;foo&#39;, &#39;foo&#39;],
-                   &#39;B&#39; : [&#39;one&#39;, &#39;one&#39;, &#39;two&#39;, &#39;three&#39;,
-                          &#39;two&#39;, &#39;two&#39;, &#39;one&#39;, &#39;three&#39;],
-                   &#39;C&#39; : np.random.randn(8),
-                   &#39;D&#39; : np.random.randn(8)})
+                   &#39;B&#39; : np.random.randn(8),
+                   &#39;C&#39; : np.random.randn(8)})
 print(df.groupby(&#39;A&#39;).sum())</pre>
 
-<pre >##             C         D
+<pre >##             B         C
 ## A                      
-## bar  1.991434 -3.360921
-## foo -1.704841 -2.266212</pre>
+## bar  1.385882 -1.118812
+## foo  1.599372  0.198150</pre>
 
 </article></slide><slide class=''><hgroup><h2>Other Packages</h2></hgroup><article  id="other-packages" class="smaller ">
 
